@@ -38,7 +38,7 @@ Add the `cdk-eks-blueprint` library as as a dependency to your CDK project.
 
 ```json
 "dependencies": {
-  "@shapirov/cdk-eks-blueprint": "0.1.4"
+  "@shapirov/cdk-eks-blueprint": "0.1.5"
 }
 ```
 
@@ -49,16 +49,17 @@ import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import {
     CdkEksBlueprintStack, 
-    ArgoCDAddOn
+    ArgoCDAddOn,
     MetricsServerAddon, 
     ClusterAutoScaler, 
     ContainerInsightsAddOn, 
     NginxAddon, 
     CalicoNetworkPolicyAddon, 
+    ClusterAddOn
 }  from '@shapirov/cdk-eks-blueprint';
 
 const addOns: Array<ClusterAddOn> = [
-  new ArgoCDAddOn
+  new ArgoCDAddOn,
   new MetricsServerAddon,
   new ClusterAutoScaler,
   new ContainerInsightsAddOn,
@@ -67,12 +68,13 @@ const addOns: Array<ClusterAddOn> = [
 ];
 
 const app = new cdk.App();
-new CdkEksBlueprintStack(app, 'east-test-1', addOns, [], {
+new CdkEksBlueprintStack(app, {id: 'east-test-1', addOns: addOns, teams: []}, {
   env: {
-      account: <AWS_ACCOUNT_ID>,
-      region: <AWS_REGION>,
+      account: 'AWS_ACCOUNT_ID',
+      region: 'REGION'
   },
 });
+
 ```
 
 Deploy the stack 
