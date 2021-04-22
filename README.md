@@ -6,7 +6,7 @@ The repository contains the source code and configuration for the `EKS Shared Se
 
 ### Install CDK 
 
-This reference architecture leverages [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). Install CDK via the following.
+This reference architecture leverages [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). Install the AWS CDK using the following command:
 
 ```bash
 npm install -g aws-cdk
