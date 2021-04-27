@@ -47,27 +47,20 @@ Replace the contents of `bin/<your-main-file>.ts` (where `your-main-file` by def
 ```typescript
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import {
-    CdkEksBlueprintStack, 
-    ArgoCDAddOn
-    MetricsServerAddon, 
-    ClusterAutoScaler, 
-    ContainerInsightsAddOn, 
-    NginxAddon, 
-    CalicoNetworkPolicyAddon, 
-}  from '@shapirov/cdk-eks-blueprint';
 
-const addOns: Array<ClusterAddOn> = [
-  new ArgoCDAddOn
-  new MetricsServerAddon,
-  new ClusterAutoScaler,
-  new ContainerInsightsAddOn,
-  new NginxAddon, 
-  new CalicoNetworkPolicyAddon,
+import { CdkEksBlueprintStack, Addons } from '@shapirov/cdk-eks-blueprint';
+
+const clusterAddons: Array<ClusterAddon> = [
+    new Addons.CalicoAddon,
+    new Addons.MetricsServerAddon,
+    new Addons.ClusterAutoScalerAddon,
+    new Addons.ContainerInsightsAddOn,
+    new Addons.ContainerInsightsAddOn,
+    new Addons.ArgoCDAddon
 ];
 
 const app = new cdk.App();
-new CdkEksBlueprintStack(app, 'east-test-1', addOns, [], {
+new CdkEksBlueprintStack(app, 'east-test-1', clusterAddons, [], {
   env: {
       account: <AWS_ACCOUNT_ID>,
       region: <AWS_REGION>,
