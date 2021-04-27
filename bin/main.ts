@@ -7,7 +7,7 @@ import { Cluster, FargateProfileOptions, KubernetesVersion, MachineImageType, No
 import { CdkEksBlueprintStack, ClusterAddon, ClusterInfo, ClusterProvider, TeamSetup } from '../lib/eksBlueprintStack';
 
 // Addons 
-import * as addons from '../lib/addons'
+import * as Addons from '../lib/addons'
 
 // Pipeline
 import { PipelineStack } from '../lib/pipelineStack';
@@ -24,12 +24,12 @@ import { TeamTroiSetup } from '../lib/teams/team-troi/setup';
 const app = new cdk.App();
 
 const clusterAddons: Array<ClusterAddon> = [
-    new addons.CalicoAddon,
-    new addons.MetricsServerAddon,
-    new addons.ClusterAutoScalerAddon,
-    new addons.ContainerInsightsAddOn,
-    new addons.ContainerInsightsAddOn,
-    new addons.ArgoCDAddon
+    new Addons.CalicoAddon,
+    new Addons.MetricsServerAddon,
+    new Addons.ClusterAutoScalerAddon,
+    new Addons.ContainerInsightsAddOn,
+    new Addons.NginxAddon,
+    new Addons.ArgoCDAddon
 ];
 
 const allTeams: Array<TeamSetup> = [

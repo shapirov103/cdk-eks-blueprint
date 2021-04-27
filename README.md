@@ -55,7 +55,7 @@ const clusterAddons: Array<ClusterAddon> = [
     new Addons.MetricsServerAddon,
     new Addons.ClusterAutoScalerAddon,
     new Addons.ContainerInsightsAddOn,
-    new Addons.ContainerInsightsAddOn,
+    new Addons.NginxAddon,
     new Addons.ArgoCDAddon
 ];
 
