@@ -153,3 +153,18 @@ Example:
   cdk bootstrap aws://<AWS_ACCOUNT_ID>/us-east-1
 ```
 In addition to the regular [environment bootstrapping](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html) pipeline bootstrapping for pipelines requires a new style of bootstrapping. Set `AWS_ACCOUNT` environment to your account and execute (with account admin privileges) the command in bootstrap-pipeline.sh.  
+
+PR Language 
+
+```
+Closes #31 
+
+This pull request performs the following:
+
+1. Updates addon filenames to be consistent (index.ts)
+2. Replaces hardcoded manifests with helm charts where possible. 
+3. Adds Typescript ESLint to the project. https://github.com/typescript-eslint/typescript-eslint
+4. A bit of code cleanup and organization.
+
+Note that my editor settings use 4 space tabs for formatting. A few files have been auto-formatted. @shapirov103 lets sort out formatting for the project prior to merging. 
+```

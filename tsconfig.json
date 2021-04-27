@@ -25,6 +25,10 @@
         ]
     },
     "exclude": [
-        "cdk.out"
+        "cdk.out",
+        "test/"
+    ],
+    "outDir": [
+        "dist"
     ]
 }

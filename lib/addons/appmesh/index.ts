@@ -1,6 +1,6 @@
 import { ManagedPolicy } from "@aws-cdk/aws-iam";
 
-import { ClusterAddon, ClusterInfo } from "../../eksBlueprintStack";
+import { ClusterAddon, ClusterInfo } from "../../stacks/eks-blueprint-stack";
 
 export class AppMeshAddon implements ClusterAddon {
 
@@ -21,15 +21,15 @@ export class AppMeshAddon implements ClusterAddon {
         sa.role.addManagedPolicy(appMeshPolicy);
 
         // App Mesh Namespace
-        const appMeshNS = cluster.addManifest('app-mesh-ns', {
+        const appMeshNS = cluster.addManifest('appmesh-ns', {
             apiVersion: 'v1',
             kind: 'Namespace',
             metadata: { name: 'appmesh-system' }
         });
         sa.node.addDependency(appMeshNS);
 
-        // App Mesh Controller
-        const chart = cluster.addHelmChart("appmesh-addon", {
+        // App Mesh Controller        
+        const chart = cluster.addHelmChart("AppMeshAddon", {
             chart: "appmesh-controller",
             repository: "https://aws.github.io/eks-charts",
             release: "appm-release",
@@ -37,7 +37,7 @@ export class AppMeshAddon implements ClusterAddon {
             values: {
                 "region": cluster.stack.region,
                 "serviceAccount.create": false,
-                "serviceAccount.name": "app-mesh-controller"
+                "serviceAccount.name": "appmesh-controller"
             }
         });
         chart.node.addDependency(sa);

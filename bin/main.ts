@@ -4,17 +4,17 @@ import { InstanceType, IVpc } from '@aws-cdk/aws-ec2';
 import { Cluster, FargateProfileOptions, KubernetesVersion, MachineImageType, NodegroupAmiType } from '@aws-cdk/aws-eks';
 
 // Blueprint
-import { CdkEksBlueprintStack, ClusterAddon, ClusterInfo, ClusterProvider, TeamSetup } from '../lib/eksBlueprintStack';
+import { CdkEksBlueprintStack, ClusterAddon, ClusterInfo, ClusterProvider, TeamSetup } from '../lib/stacks/eks-blueprint-stack';
 
 // Addons 
 import * as Addons from '../lib/addons'
 
 // Pipeline
-import { PipelineStack } from '../lib/pipelineStack';
+import { PipelineStack } from '../lib/stacks/pipeline-stack';
 
 // Cluster Providers
-import { EC2ClusterProvider, EC2ProviderClusterProps } from '../lib/ec2-cluster-provider';
-import { FargateClusterProvider } from '../lib/fargate-cluster-provider';
+import { EC2ClusterProvider, EC2ProviderClusterProps } from '../lib/cluster-providers/ec2-cluster-provider';
+import { FargateClusterProvider } from '../lib/cluster-providers/fargate-cluster-provider';
 
 // Teams
 import { TeamBurnhamSetup } from '../lib/teams/team-burnham/setup';
