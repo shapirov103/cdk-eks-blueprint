@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "dist",
         "target": "ES2018",
         "module": "commonjs",
         "lib": [
@@ -26,9 +27,8 @@
     },
     "exclude": [
         "cdk.out",
-        "test/"
+        "node_modules",
+        "test",
+        ".git"
     ],
-    "outDir": [
-        "dist"
-    ]
 }

@@ -1,6 +1,6 @@
 import { expect as expectCDK, haveResource } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as CdkEksBlueprint from '../lib/eksBlueprintStack';
+import * as CdkEksBlueprint from '../lib/stacks/eks-blueprint-stack';
 
 test('SQS Queue Created', () => {
     const app = new cdk.App();

@@ -74,6 +74,13 @@ Deploy the stack
 cdk deploy
 ```
 
+```
+Outputs:
+east-dev.eastdevClusterNameAD4927F9 = east-dev
+east-dev.eastdevConfigCommand1B9C7FF9 = aws eks update-kubeconfig --name east-dev --region us-west-1 --role-arn arn:aws:iam::115717706081:role/east-dev-eastdevMastersRole0C14F966-OFP9T3GLGTTL
+east-dev.eastdevGetTokenCommand54E73D04 = aws eks get-token --cluster-name east-dev --region us-west-1 --role-arn arn:aws:iam::115717706081:role/east-dev-eastdevMastersRole0C14F966-OFP9T3GLGTTL
+```
+
 ### Stack Configuration
 
 Supports context variables (specify in cdk.json, cdk.context.json or pass with -c command line option):
@@ -155,6 +162,14 @@ Example:
 In addition to the regular [environment bootstrapping](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html) pipeline bootstrapping for pipelines requires a new style of bootstrapping. Set `AWS_ACCOUNT` environment to your account and execute (with account admin privileges) the command in bootstrap-pipeline.sh.  
 
 PR Language 
+
+## Argo Setup
+
+Change the argocd-server service type to LoadBalancer:
+
+```
+kubectl patch svc eastdevchartargocdaddone8491430-server -n kube-system -p '{"spec": {"type": "LoadBalancer"}}'
+```
 
 ```
 Closes #31 
