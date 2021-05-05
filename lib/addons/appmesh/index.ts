@@ -1,10 +1,11 @@
+import * as cdk from '@aws-cdk/core';
 import { ManagedPolicy } from "@aws-cdk/aws-iam";
 
 import { ClusterAddon, ClusterInfo } from "../../stacks/eks-blueprint-stack";
 
 export class AppMeshAddon implements ClusterAddon {
 
-    deploy(clusterInfo: ClusterInfo): void {
+    deploy(scope: cdk.Construct, clusterInfo: ClusterInfo): void {
 
         const cluster = clusterInfo.cluster;
 

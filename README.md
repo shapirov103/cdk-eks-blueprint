@@ -163,14 +163,6 @@ In addition to the regular [environment bootstrapping](https://docs.aws.amazon.c
 
 PR Language 
 
-## Argo Setup
-
-Change the argocd-server service type to LoadBalancer:
-
-```
-kubectl patch svc eastdevchartargocdaddone8491430-server -n kube-system -p '{"spec": {"type": "LoadBalancer"}}'
-```
-
 ```
 Closes #31 
 
@@ -183,3 +175,48 @@ This pull request performs the following:
 
 Note that my editor settings use 4 space tabs for formatting. A few files have been auto-formatted. @shapirov103 lets sort out formatting for the project prior to merging. 
 ```
+
+Seth Fox 
+
+Built SaaS Factory -> 2SAs -> 20SAs
+
+Startup Focus
+* Clubhouse -> Ran into all sorts of scalablility issues with us. 
+    * DB issues 
+    * Account strategy issues 
+* AWS -> We have too many choices. How do we put them together. 
+* Starting with a managed service gets them going quickly. 
+* Self Managed v Managed -> His example is Snowflake. If customer chooses that, they are still running on our platform. 
+* What is your tech anchor point?
+    * Multi tenancy
+    * Spent a bunch of time in OpenStack world.
+    * Kind of a weird answer here. 
+    * This was really all over the place.
+    * Concrete answer -> working with containers and Kubernetes
+    * Networking is a strength as well.
+* EC2 Specifically -> What have you talked to Samira about?
+    * Graviton MacOS, Nitro Enclaves
+* What does your current team look like?
+    * 20 or so SAs and managers
+    * Few direct reports. 
+* Why did he have to apply to get learning?
+    * He did the informational. I did that. 
+* SDM role was all tech. 
+* Whats a big project you took on and made yours. 
+    * SaaS Factory -> Ownership -> 
+* What are the issues with Graviton. Blockers to adoption?
+    * Developing for multiple platforms isn't great for devs. So this sucks. 
+    * He is missing the ecosystem
+* What is next year?
+    * MacOS -> Find product market fit
+    * Get ahead of Gton 2
+    * Where do we need specialists on EC2 and where do we not.
+    * Continue to hire amazing people. 
+    * Our people look way more like product centric people than sales centric. 
+* How do we make this an appreciated role.
+    * For the people we work with -> we are oxygen and gravity. 
+    * Data and Comms are the most important thing we can do (outside of hire people).
+    * 
+
+
+ 

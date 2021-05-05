@@ -53,7 +53,7 @@ export class CdkEksBlueprintStack extends cdk.Stack {
         const clusterInfo = clusterProvider.createCluster(this, vpc, blueprintProps.version ?? KubernetesVersion.V1_19);
 
         for (let addOn of (blueprintProps.addons ?? [])) { // must iterate in the strict order
-            addOn.deploy(clusterInfo);
+            addOn.deploy(scope, clusterInfo);
         }
         if (blueprintProps.teams != null) {
             blueprintProps.teams.forEach(team => team.setup(clusterInfo));
@@ -90,7 +90,7 @@ export interface ClusterProvider {
 }
 
 export interface ClusterAddon {
-    deploy(clusterInfo: ClusterInfo): void;
+    deploy(scope: cdk.Construct, clusterInfo: ClusterInfo): void;
 }
 
 export interface TeamSetup {

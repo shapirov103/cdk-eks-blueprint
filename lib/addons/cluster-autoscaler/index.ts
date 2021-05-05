@@ -1,7 +1,8 @@
+import * as cdk from '@aws-cdk/core';
 import * as eks from "@aws-cdk/aws-eks";
 import { KubernetesVersion } from "@aws-cdk/aws-eks";
 import * as iam from "@aws-cdk/aws-iam";
-import { CfnJson, Tags } from "@aws-cdk/core";
+// import { CfnJson, Tags } from "@aws-cdk/core";
 import { ClusterAddon, ClusterInfo } from "../../stacks/eks-blueprint-stack";
 
 export class ClusterAutoScalerAddon implements ClusterAddon {
@@ -21,7 +22,7 @@ export class ClusterAutoScalerAddon implements ClusterAddon {
         [KubernetesVersion.V1_17, "v1.17.4"]
     ]);
 
-    deploy(clusterInfo: ClusterInfo) {
+    deploy(scope: cdk.Construct, clusterInfo: ClusterInfo) {
 
         const version = this.versionField ?? this.versionMap.get(clusterInfo.version);
         const cluster = clusterInfo.cluster;
@@ -48,11 +49,11 @@ export class ClusterAutoScalerAddon implements ClusterAddon {
         });
         autoscalerPolicy.attachToRole(ng.role);
 
-        const clusterName = new CfnJson(cluster.stack, "clusterName", {
+        const clusterName = new cdk.CfnJson(cluster.stack, "clusterName", {
             value: cluster.clusterName,
         });
-        Tags.of(ng).add(`k8s.io/cluster-autoscaler/${clusterName}`, "owned", { applyToLaunchedInstances: true });
-        Tags.of(ng).add("k8s.io/cluster-autoscaler/enabled", "true", { applyToLaunchedInstances: true });
+        cdk.Tags.of(ng).add(`k8s.io/cluster-autoscaler/${clusterName}`, "owned", { applyToLaunchedInstances: true });
+        cdk.Tags.of(ng).add("k8s.io/cluster-autoscaler/enabled", "true", { applyToLaunchedInstances: true });
 
         new eks.KubernetesManifest(cluster.stack, "cluster-autoscaler", {
             cluster,

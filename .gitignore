@@ -10,9 +10,8 @@ node_modules
 .vscode
 *.iml
 
-dist
-
 # CDK asset staging directory
 .cdk.staging
 cdk.out
 
+dist
