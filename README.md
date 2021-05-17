@@ -1,4 +1,35 @@
 > :warning: **This project has been moved over to [AWS Quickstart repository](https://github.com/aws-quickstart/quickstart-ssp-amazon-eks). All new updates are applied to the new repo.**
+# Amazon EKS Shared Services Platform (SSP)
+
+![GitHub](https://img.shields.io/github/license/shapirov103/cdk-eks-blueprint)
+
+Welcome to the `Amazon EKS SSP` repository! 
+
+This repository provides a toolchain and methodlogy that allows customers to build Shared Services Platfomrs on top of EKS. Customers can leverage `EKSBlueprint`
+to manage cluters, addons and teams, in order to easily deploy production ready EKS clusters across accounts and regions. It also leverage a Gitops-based approach to provide easy, self-service onboarding of new workloads to the shared clustes. 
+
+Customers can use `EKSBlueprint` to:
+
+* Deploy and manage multi-tenant EKS clusters across acounts and regions. 
+* Leverage Gitops-based workflows to onboard and manage workloads. 
+
+## Getting Started 
+
+
+
+### Install CDK 
+
+This reference architecture leverages [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). Install CDK via the following.
+
+```bash
+npm install -g aws-cdk
+```
+
+Verify the installation.
+
+```bash
+cdk --version
+```
 
 ### Project setup
 
