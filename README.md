@@ -1,22 +1,4 @@
-# EKS Blueprint
-
-The repository contains the source code and configuration for the `EKS Shared Services Platform` reference architecture. 
-
-## Getting Started 
-
-### Install CDK 
-
-This reference architecture leverages [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). Install CDK via the following.
-
-```bash
-npm install -g aws-cdk@1.104.0
-```
-
-Verify the installation.
-
-```bash
-cdk --version
-```
+> :warning: **This project has been moved over to [AWS Quickstart repository](https://github.com/aws-quickstart/quickstart-ssp-amazon-eks). All new updates are applied to the new repo.**
 
 ### Project setup
 
